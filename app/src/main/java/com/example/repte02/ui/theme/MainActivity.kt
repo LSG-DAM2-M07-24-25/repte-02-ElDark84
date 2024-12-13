@@ -9,6 +9,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
+
             NavHost(
                 navController = navController,
                 startDestination = Routes.LaunchScreen.route
@@ -17,7 +18,9 @@ class MainActivity : ComponentActivity() {
                     LaunchScreen(navController)
                 }
                 composable(Routes.SelectScreen.route) {
-                    SelectScreen()
+                    SelectScreen(
+                        navController = TODO()
+                    )
                 }
             }
         }
