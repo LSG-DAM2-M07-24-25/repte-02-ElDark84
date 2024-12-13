@@ -12,8 +12,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
 import com.example.repte02.R
 import androidx.compose.ui.layout.ContentScale
 import androidx.navigation.NavHostController
@@ -26,16 +24,14 @@ class LaunchScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            // Crear el NavController
             val navController = rememberNavController()
 
-            // Configurar NavHost y pasar el navController
             NavHost(
                 navController = navController,
                 startDestination = Routes.LaunchScreen.route
             ) {
                 composable(Routes.LaunchScreen.route) {
-                    LaunchScreen(navController) // Pasar navController aquí
+                    LaunchScreen(navController)
                 }
                 composable(Routes.SelectScreen.route) {
                     SelectScreen()
