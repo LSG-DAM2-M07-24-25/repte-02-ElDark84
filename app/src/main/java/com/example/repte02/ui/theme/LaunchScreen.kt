@@ -20,6 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.repte02.ui.theme.Routes
 
+
 class LaunchScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,9 @@ class LaunchScreen : ComponentActivity() {
                     LaunchScreen(navController)
                 }
                 composable(Routes.SelectScreen.route) {
-                    SelectScreen()
+                    SelectScreen(
+                        navController = TODO()
+                    )
                 }
             }
         }
@@ -44,7 +47,9 @@ class LaunchScreen : ComponentActivity() {
 @Composable
 fun LaunchScreen(navController: NavHostController) {
     Column(
-        modifier = Modifier .fillMaxSize() .padding(2.dp), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(2.dp), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
 
         Image(contentScale = ContentScale.FillBounds
             , painter = painterResource(id = R.drawable.dragonball_daima_logo)
@@ -63,6 +68,7 @@ fun LaunchScreen(navController: NavHostController) {
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewLauncScreen() {
-    LaunchScreen(navController = rememberNavController())
+fun PreviewLaunchScreen() {
+    val navController = rememberNavController()
+    LaunchScreen(navController = navController)
 }
